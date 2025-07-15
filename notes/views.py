@@ -25,9 +25,11 @@ class NotesUpdateView(UpdateView):
 
 class NotesListView(LoginRequiredMixin, ListView):
     model = Notes
-    # template_name = 'notes/notes_list.html'
+    template_name = 'notes/notes_list.html'
     context_object_name = 'notes'
     login_url = '/admin'
+    def get_queryset(self):
+        return self.request.user.notes.all().order_by('-created_at')
 
 class NotesDeleteView(DeleteView):
     model = Notes
