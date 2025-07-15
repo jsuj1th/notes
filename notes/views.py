@@ -15,6 +15,13 @@ class NotesCreateView(CreateView):
     form_class = NotesForm
     # template_name = 'notes/notes_create.html'
     success_url = '/smart/notes'
+
+    def form_valid(self, form):
+        # form.instance.user = self.request.user
+        self.object = form.save(commit=False)
+        self.object.user = self.request.user  # Set the user to the current logged-in user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
     
 class NotesUpdateView(UpdateView):
     model = Notes
