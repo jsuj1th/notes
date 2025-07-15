@@ -9,6 +9,9 @@ from .forms import NotesForm
 from django.views import View
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+
 class NotesCreateView(CreateView):
     model = Notes
     # fields = ['title', 'text']
@@ -72,6 +75,14 @@ def add_like_view(request, pk):
     else:
         raise Http404("Invalid request method")
 
+def change_private_status(request, pk):
+    note = get_object_or_404(Notes, pk=pk)
+    if request.method == 'POST':
+        note.private = not note.private
+        note.save()
+        return HttpResponseRedirect(reverse('note_detail', args=[pk]))
+    else:
+        raise Http404("Invalid request method")
     # def get_queryset(self):
     #     return Notes.objects.order_by('-likes')[:5]
 # def notes_list(request):

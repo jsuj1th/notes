@@ -3,7 +3,7 @@ from . import models
 
 # Register your models here.
 class NotesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'likes')
+    list_display = ('title', 'created_at', 'likes', 'user', 'private')
     search_fields = ('title', 'text')
 
 admin.site.register(models.Notes, NotesAdmin)

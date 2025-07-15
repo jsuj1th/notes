@@ -8,4 +8,4 @@ class Notes(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     likes = models.PositiveSmallIntegerField(default=0)
     user=models.ForeignKey(User, on_delete=models.CASCADE, related_name="notes")
-    
+    private = models.BooleanField(default=False)

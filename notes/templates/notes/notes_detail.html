@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="my-5 border round text-center container">
-    <h1 class="my-5">{{note.title}}</h1>
+    <h1 class="my-5">{{note.title}}<span class="badge bg-secondary">{% if note.private %}Private{% else %}Public{% endif %}</span></h1>
     <p>{{note.text}}</p>
     <p>Created at: {{note.created_at}}</p>
     <p>Likes: {{note.likes}}</p>
@@ -16,4 +16,11 @@
 <a href="{% url 'notes.delete' pk=note.pk %}" class="btn btn-danger">Delete</a>
 
 <a href="{% url 'notes.list' %}" class="btn btn-secondary">Back</a>
+<!-- <div class="form-check form-switch"> -->
+    <form method="post" action="{% url 'notes.change_private_status' pk=note.pk %}">
+        {% csrf_token %}
+        <input class="form-check-input" type="checkbox" id="privateSwitch" name="private" {% if note.private %}checked{% endif %} onchange="this.form.submit()">
+        <label class="form-check-label" for="privateSwitch">Private Note</label>
+    </form>
+<!-- </div> -->
 {% endblock %}
