@@ -45,18 +45,24 @@ source venv/bin/activate
 
 ### 3. Install Dependencies
 
-``` pip install -r requirements.txt ```
+``` 
+pip install -r requirements.txt 
+```
 
 ## Database Setup
 
 ### 4. Apply Migrations
-``` python manage.py migrate ```
+```
+ python manage.py migrate 
+ ```
 
 
 ### 5. Create a Superuser (Admin)
 
 
-``` python manage.py createsuperuser```
+```
+ python manage.py createsuperuser
+ ```
 
 
 Follow the prompts to set up your admin account.
@@ -66,7 +72,9 @@ Follow the prompts to set up your admin account.
 ### 6. Start the Development Server
 
 
-``` python manage.py runserver```
+```
+ python manage.py runserver
+ ```
 
 Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
 
