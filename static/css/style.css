@@ -1,0 +1,14 @@
+.note-li{
+    color: red;
+}
+
+
+ul.errorlist {
+    display: none;
+}
+
+.edit-btn {
+    /* margin-left: 10px;
+     */
+     color: green;
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<header><title>SmartNotes!</title></header>
+<body><h1>Welcome to Duplicate SmartNotes!</h1></body>
+<p>Today is {{ current_time }}</p>
+<a href="{% url 'notes.list' %}" class="btn btn-primary">Check out this smart notes</a>
+{% include "home/advantages.html" %}
+{% endblock %}
+
+<!-- {% include "static/templates/footer.html" %} -->

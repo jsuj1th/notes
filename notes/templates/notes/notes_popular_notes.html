@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1> These are the top 5 popular notes:</h1>
+    <ul>
+        {% for note in notes %}
+            <li>{{ note.title }} - {{ note.created_at }} - Likes: {{ note.likes }}</li>
+        {% empty %}
+            <li>No popular notes available.</li>
+        {% endfor %}
+    </ul>   
+{% endblock %}

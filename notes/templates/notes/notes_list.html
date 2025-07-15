@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <h1 class="my-5"> These are the Notes:</h1>
+
+
+    <div class="row row-cols-3 g-2">
+        {% for note in notes %}
+            <div class="col" >
+                <div class="p-3 border">
+                    <a href="{% url 'note_detail' note.pk %}" class="text-dark text"><h3>{{ note.title }}
+                        </h3>
+                        </a>
+                    {{ note.text|truncatewords:20 }}
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}
+<!-- </html> -->
