@@ -18,8 +18,8 @@ class NotesForm(forms.ModelForm):
                 'class': 'form-control mb5',
             })
         }
-    # def clean_title(self):
-    #     title = self.cleaned_data.get('title')
-    #     if 'Django' not in title:
-    #         raise ValidationError("Title must contain 'Django'.")
-    #     return title
+    def clean_title(self):
+        title = self.cleaned_data.get('title')
+        if 'Django' not in title:
+            raise ValidationError("Title must contain 'Django'.")
+        return title
